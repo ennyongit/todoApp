@@ -42,8 +42,8 @@
                 let task = tasks[i];
                 html = html + 
                 `<li class="task">
-                <input id=${task[i]} type="checkbox" name="completed" ${task.active ? "" : "checked"}>
-                <label for="${task[i]}">${task.name}</label>
+                <input id=task-${i} type="checkbox" name="completed" ${task.active ? "" : "checked"}>
+                <label for="task-${i}">${task.name}</label>
                 <button class="deleteBtn">Delete</button>
                 <button class="editBtn">Edit</button>
             </li>`  
