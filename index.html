@@ -7,16 +7,52 @@
 </head>
 <body>
     <form action="">
-        <input id="add-task" type="text" name="add-task" placeholder="Add task...">
-        <input type="submit" value="Submit">
+        <input id="addTaskInput" type="text" name="addTask" placeholder="Add task...">
+        <input id="addTask" type="submit" value="Submit">
     </form>
-    <ul class="tasks">
-        <li class="task">
-            <input id="task-1" type="checkbox" name="completed">
-            <label for="task-1">Task 1</label>
-            <button class="deleteBtn">Delete</button>
-            <button class="editBtn">Edit</button>
-        </li>
+    <ul id="tasks">
+       <!--Template-->
     </ul>
+
+ <script>
+
+    const tasks = [
+        {
+            name: "Task 1",
+            active: true
+        },
+        {
+            name: "Task 2",
+            active: false
+        },
+        {
+            name: "Task 3",
+            active: true
+        },
+        {
+            name: "Task 4",
+            active: true
+        }
+    ];
+
+        //Generates html
+        const addTasks = (tasks) => {
+            let html = "";
+            for(let i = 0; i < tasks.length; i++){
+                let task = tasks[i];
+                html = html + 
+                `<li class="task">
+                <input id=${task[i]} type="checkbox" name="completed" ${task.active ? "" : "checked"}>
+                <label for="${task[i]}">${task.name}</label>
+                <button class="deleteBtn">Delete</button>
+                <button class="editBtn">Edit</button>
+            </li>`  
+        }
+            document.getElementById("tasks").innerHTML = html;
+        }
+
+
+        addTasks(tasks);
+    </script>
 </body>
 </html>
