@@ -16,48 +16,11 @@
         <!--Template-->
     </ul>
 
+    <script src="data.js"></script>
+    <script src="lib.js"></script>
+
     <script>
-
-        const tasks = [
-            {
-                name: "Task 1",
-                active: true
-            },
-            {
-                name: "Task 2",
-                active: false
-            },
-            {
-                name: "Task 3",
-                active: true
-            },
-            {
-                name: "Task 4",
-                active: true
-            }
-        ];
-
-        //Generates html
-        const generateHtml = (tasks) => {
-            let html = "";
-
-            // loop generates html for each task
-            for (let i = 0; i < tasks.length; i++) {
-                debugger;
-                let task = tasks[i]; // individual object
-                html = html +
-                    `<li class="task">
-                <input id=task-${i} type="checkbox" name="completed" ${task.active ? "" : "checked"}>
-                <label for="task-${i}">${task.name}</label>
-                <button class="deleteBtn">Delete</button>
-                <button class="editBtn">Edit</button>
-            </li>`
-            }
-            document.getElementById("tasks").innerHTML = html;
-        }
-
-        generateHtml(tasks);
-
+       
         const taskInput = document.getElementById("addTaskInput") //input text
         // Form 
         document.getElementById("taskForm").addEventListener("submit", (event) => {
@@ -69,7 +32,7 @@
                 });
 
                 taskInput.value = "";
-                generateHtml(tasks) // Re-render the task list
+                generateHtml(tasks, "tasks") // Re-render the task list
             }
         })
     </script>
