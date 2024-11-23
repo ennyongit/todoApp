@@ -1,58 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
 </head>
+
 <body>
-    <form action="">
+    <form id="taskForm" action="">
         <input id="addTaskInput" type="text" name="addTask" placeholder="Add task...">
         <input id="addTask" type="submit" value="Submit">
     </form>
     <ul id="tasks">
-       <!--Template-->
+        <!--Template-->
     </ul>
 
- <script>
+    <script>
 
-    const tasks = [
-        {
-            name: "Task 1",
-            active: true
-        },
-        {
-            name: "Task 2",
-            active: false
-        },
-        {
-            name: "Task 3",
-            active: true
-        },
-        {
-            name: "Task 4",
-            active: true
-        }
-    ];
+        const tasks = [
+            {
+                name: "Task 1",
+                active: true
+            },
+            {
+                name: "Task 2",
+                active: false
+            },
+            {
+                name: "Task 3",
+                active: true
+            },
+            {
+                name: "Task 4",
+                active: true
+            }
+        ];
 
         //Generates html
-        const addTasks = (tasks) => {
+        const generateHtml = (tasks) => {
             let html = "";
-            for(let i = 0; i < tasks.length; i++){
-                let task = tasks[i];
-                html = html + 
-                `<li class="task">
+
+            // loop generates html for each task
+            for (let i = 0; i < tasks.length; i++) {
+                debugger;
+                let task = tasks[i]; // individual object
+                html = html +
+                    `<li class="task">
                 <input id=task-${i} type="checkbox" name="completed" ${task.active ? "" : "checked"}>
                 <label for="task-${i}">${task.name}</label>
                 <button class="deleteBtn">Delete</button>
                 <button class="editBtn">Edit</button>
-            </li>`  
-        }
+            </li>`
+            }
             document.getElementById("tasks").innerHTML = html;
         }
 
+        generateHtml(tasks);
 
-        addTasks(tasks);
+        const taskInput = document.getElementById("addTaskInput") //input text
+        // Form 
+        document.getElementById("taskForm").addEventListener("submit", (event) => {
+            event.preventDefault(); // prevent form submission from reloading the page
+            if (taskInput.value.trim() !== "") {
+                tasks.push({ //add new task
+                    name: taskInput.value,
+                    active: true
+                });
+
+                taskInput.value = "";
+                generateHtml(tasks) // Re-render the task list
+            }
+        })
     </script>
 </body>
+
 </html>
