@@ -9,7 +9,7 @@
                 let task = tasks[i]; // individual object
                 html = html +
                     `<li class="task">
-                <input id=task-${i} type="checkbox" name="completed" ${task.active ? "" : "checked"}>
+                <input id=task-${i} type="checkbox" name="completed" ${task.active ? "" : "checked"} onchange="checkTaskStatus(${i})"}>
                 <label for="task-${i}">${task.name}</label>
                 <button class="deleteBtn">Delete</button>
                 <button class="editBtn">Edit</button>
@@ -22,3 +22,13 @@
 
         // second parameter: element where we want to load html.
         generateHtml(tasks, "tasks");
+
+        const checkTaskStatus = (taskId) => {
+            debugger;
+            const task = tasks[taskId]; //i object
+            task.active = !task.active;
+            console.log(task);
+            generateHtml(tasks, "tasks");
+        }
+
+    
