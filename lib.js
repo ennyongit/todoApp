@@ -11,8 +11,8 @@
                     `<li class="task">
                 <input id=task-${i} type="checkbox" name="completed" ${task.active ? "" : "checked"} onchange="checkTaskStatus(${i})"}>
                 <label for="task-${i}">${task.name}</label>
-                <button class="deleteBtn">Delete</button>
-                <button class="editBtn">Edit</button>
+                <button class="deleteBtn" onclick="deleteTask(${i})">Delete</button>
+                <button class="editBtn" onclick="editTask(${i})">Edit</button>
             </li>`
             }
 
@@ -24,11 +24,17 @@
         generateHtml(tasks, "tasks");
 
         const checkTaskStatus = (taskId) => {
-            debugger;
             const task = tasks[taskId]; //i object
             task.active = !task.active;
             console.log(task);
             generateHtml(tasks, "tasks");
         }
+
+        // delete a task 
+        const deleteTask = (taskId) => {
+            tasks.splice(taskId, 1) // remove the task from the array
+            generateHtml(tasks, "tasks");
+        }
+   
 
     
