@@ -26,7 +26,7 @@
         document.getElementById("taskForm").addEventListener("submit", (event) => {
             event.preventDefault(); // prevent form submission from reloading the page
             if (taskInput.value.trim() !== "") {
-                tasks.push({ //add new task
+                tasks.unshift({ //add new task
                     name: taskInput.value,
                     active: true
                 });
