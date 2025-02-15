@@ -9,34 +9,30 @@
 </head>
 
 <body>
-    <form id="taskForm" action="">
-        <input id="addTaskInput" type="text" name="addTask" placeholder="Add task...">
-        <input id="addTask" type="submit" value="Submit">
-    </form>
-    <ul id="tasks">
-        <!--Template-->
-    </ul>
-
-    <script src="data.js"></script>
-    <script src="lib.js"></script>
-
-    <script>
-       
-        const taskInput = document.getElementById("addTaskInput") //input text
-        // Form 
-        document.getElementById("taskForm").addEventListener("submit", (event) => {
-            event.preventDefault(); // prevent form submission from reloading the page
-            if (taskInput.value.trim() !== "") {
-                tasks.unshift({ //add new task
-                    name: taskInput.value,
-                    active: true
-                });
-
-                taskInput.value = "";
-                generateHtml(tasks, "tasks") // Re-render the task list
-            }
-        })
-    </script>
-</body>
-
+  <div class="container">
+    <div class="todoApp">
+        <div class="todoHeader">
+           Todos <span class="todosCount">5</span>
+        </div>
+        <div class="todoBody">   
+                    <div class="createTodo">
+                        <input type="text" placeholder="Enter todo here">
+                        <button>Submit</button>
+                    </div>
+                    <div class="todoList">
+                        <div class="todoItem">
+                            <div class="todoCheckbox">
+                                <input type="checkbox">
+                            </div>
+                            <div class="todoName">text</div>
+                            <div class="actions">
+                               <span class="btnEdit">Edit</span>
+                               <span class="btnDelete">Delete</span>
+                            </div>
+                        </div>
+                    </div>
+       </div>
+    </div>
+  </div>
+ </body>
 </html>

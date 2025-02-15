@@ -1,4 +1,82 @@
-input[type="checkbox"]:checked + label {
-    text-decoration: line-through;
-    color: green;
+body, html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
 }
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todoApp{
+    width: 70%;
+    height: 80%;
+    background-color:white;
+    border: 1px solid gainsboro;
+}
+
+.todoHeader{
+    background-color: gainsboro;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    color: white;
+}
+
+.todoBody{
+    height: 90%;
+    background-color: white;
+    padding: 20px;
+}
+
+.createTodo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.createTodo input{
+    width: 70%;
+}
+
+.createTodo button{
+    width: 25%;
+}
+
+.actions{
+    display: flex;
+    align-items: center;
+}
+
+.todoList{
+    margin-top: 20px;
+}
+.todoItem{
+    display: flex;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+.todoItem:nth-child(odd){
+    background-color: gainsboro;
+}
+
+.todoCheckbox{
+    width: 10%;
+}
+
+.todoName{
+    width: 65%;
+}
+
+.actions{
+    display: flex;
+    justify-content: space-around;
+    width: 25%;
+}
+
